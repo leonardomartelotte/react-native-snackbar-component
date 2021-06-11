@@ -9,7 +9,8 @@ import {
 } from 'react-native';
 import { Touchable } from './src';
 
-/* Values are from https://material.io/guidelines/motion/duration-easing.html#duration-easing-dynamic-durations */
+/* Values are from https://material.io/guidelines/motion/
+-easing.html#duration-easing-dynamic-durations */
 const easingValues = {
   entry: Easing.bezier(0.0, 0.0, 0.2, 1),
   exit: Easing.bezier(0.4, 0.0, 1, 1),
@@ -111,6 +112,7 @@ class SnackbarComponent extends Component {
     if (nextProps.visible && !this.props.visible) {
       Animated.timing(this.state.translateValue, {
         duration: durationValues.entry,
+        useNativeDriver: false,
         toValue: 1,
         easing: easingValues.entry,
       }).start();
@@ -147,6 +149,7 @@ class SnackbarComponent extends Component {
   hideSnackbar() {
     Animated.timing(this.state.translateValue, {
       duration: durationValues.exit,
+      useNativeDriver: false,
       toValue: 0,
       easing: easingValues.exit,
     }).start();
