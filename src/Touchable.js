@@ -40,7 +40,7 @@ const Touchable = ({ onPress, style, children }) => {
 
 Touchable.propTypes = {
   onPress: PropTypes.func,
-  style: ViewPropTypes.style,
+  style: ViewPropTypes?.style,
   children: PropTypes.node.isRequired,
 };
 
